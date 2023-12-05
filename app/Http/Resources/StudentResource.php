@@ -12,6 +12,7 @@ class StudentResource extends JsonResource
      *
      * @return array<string, mixed>
      */
+    /*el método convierte el recurso en un arreglo asociativo con los datos del alumno*/
     public function toArray(Request $request): array
     {
         return [
