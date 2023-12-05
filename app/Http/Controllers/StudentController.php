@@ -20,13 +20,10 @@ class StudentController extends Controller
     /**
      * Display a listing of the resource.
      */
+    /*este método se encarga de manejar la solicitud para obtener una lista pgainada de los alumnos*/
     public function index(Request $request)
     {
-        /*$students = Student::all();
-        return view('student.index', compact('students'));*/
 
-        /*return Student::all();*/
-        
         $filter = new StudentFilter();
         $queryItems = $filter->transform($request);
         $students = Student::where($queryItems);
@@ -49,31 +46,11 @@ class StudentController extends Controller
     /**
      * Store a newly created resource in storage.
      */
+    /*método del controladpr que peri¿mite almacenar un uevo estudiante en la base de datos*/
     public function store(StoreStudentRequest $request)
     {
         return new StudentResource(Student::create($request->all()));
-        // dd($request);
-        /*$data = $request->validate([
-            'control_number' => 'required',
-            'student_name' => 'required',
-            'lastname' => 'required',
-            'email' => 'required',
-            'password' => 'required',
-            'gender' => 'required|in:Hombre,Mujer',
-            'birthdate' => 'required',
-            'telephone' => 'required',
-            'street' => 'required',
-            'suburb' => 'required',
-            'status' => 'required',
-            'street' => 'required',
-            'semester' => 'required',
-            'role_id' => 'required',
-            'town_id' => 'required',
-            'career_id' => 'required',
-        ]);*/
 
-        /*Student::create($data);
-        return redirect()->route('students.index');*/
     }
 
     /**
@@ -81,7 +58,6 @@ class StudentController extends Controller
      */
     public function show(Student $student)
     {
-        /*return view('student.show', compact('student'));*/
         
         return new StudentResource($student);
 
@@ -104,26 +80,9 @@ class StudentController extends Controller
      */
     public function update(UpdateStudentRequest $request, Student $student)
     {
-        /*$data = $request->validate([
-            'control_number' => 'required',
-            'student_name' => 'required',
-            'lastname' => 'required',
-            'email' => 'required',
-            'password' => 'required',
-            'gender' => 'required|in:Hombre,Mujer',
-            'birthdate' => 'required',
-            'telephone' => 'required',
-            'street' => 'required',
-            'suburb' => 'required',
-            'status' => 'required',
-            'street' => 'required',
-            'role_id' => 'required',
-            'town_id' => 'required',
-            'career_id' => 'required',
-        ]);*/
-
+       
         $student->update($request->all());
-        /*return redirect()->route('students.index');*/
+       
     }
 
     /**
