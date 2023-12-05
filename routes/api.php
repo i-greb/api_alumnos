@@ -19,6 +19,8 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
+/*establece un grupo de rutas, donde se define la ruta de recurso de la API con el controlador*/
+
 Route::group(['prefix' => 'v1', 'namespace'=> 'App\Http\Controllers'], function(){
     Route::apiResource('career',CareerController::class);
     Route::apiResource('municipality',MunicipalityController::class);
