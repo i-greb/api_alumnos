@@ -12,6 +12,7 @@ class StudentColletion extends JsonResource
      *
      * @return array<string, mixed>
      */
+    /*el método se encarga de convertir la coleccion de recursos a un arreglo*/
     public function toArray(Request $request): array
     {
         return parent::toArray($request);
